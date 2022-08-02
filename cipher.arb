@@ -1,19 +1,24 @@
 def caesar_cipher(word, num)
  numbers = []
  main_array = []
- alph_array = ("a".."z").to_a
- word_array = word.split("")
- for i in word_array
+ alph_array = ("a".."z").to_a #array containing alphabet
+ for letter in word.split("")
   0.upto(alph_array.length) do |arra_number|
-    if alph_array[arra_number] == i 
-      numbers.push(arra_number + num)
+    if alph_array[arra_number] == letter
+       if arra_number + num > 26
+        numbers.push(arra_number + num - 26)
+       elsif arra_number + num < 0
+        numbers.push(arra_number + num + 26)
+       else
+        numbers.push(arra_number + num)
+       end
     end
   end
  end
- for numbies in numbers
-  main_array.push(alph_array[numbies])
+ for single_num in numbers
+  main_array.push(alph_array[single_num])
  end
  main_array.join("")
 end
 
-puts caesar_cipher("paul", 5)
+puts caesar_cipher("", 2)
