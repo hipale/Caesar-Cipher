@@ -1,0 +1,19 @@
+def caesar_cipher(word, num)
+ numbers = []
+ main_array = []
+ alph_array = ("a".."z").to_a
+ word_array = word.split("")
+ for i in word_array
+  0.upto(alph_array.length) do |arra_number|
+    if alph_array[arra_number] == i 
+      numbers.push(arra_number + num)
+    end
+  end
+ end
+ for numbies in numbers
+  main_array.push(alph_array[numbies])
+ end
+ main_array.join("")
+end
+
+puts caesar_cipher("paul", 5)
