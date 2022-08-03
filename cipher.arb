@@ -26,11 +26,11 @@ def caesar_cipher(word, num)
  for single_num in numbers
   main_array.push(alph_array[single_num])
   late_arr.each do |element|
-    main_array[element] = main_array[element]
+    main_array[element] = main_array[element].upcase()
   end
  end
   cipher_end = main_array.join("")
   cipher_end
 end
 
-puts caesar_cipher("abCd", 1)
+puts caesar_cipher("Hipale", 1)
