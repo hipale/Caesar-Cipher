@@ -1,8 +1,15 @@
 def caesar_cipher(word, num)
+  late_arr = []
+  word.split("").each_with_index do |space, index|
+   if space.downcase() != space 
+     space = space.downcase()
+     late_arr.push(index)
+   end
+  end
  numbers = []
  main_array = []
  alph_array = ("a".."z").to_a #array containing alphabet
-word_array = word.split("")
+ word_array = word.downcase.split("")
  for letter in word_array
   0.upto(alph_array.length) do |arra_number|
     if alph_array[arra_number] == letter
@@ -18,8 +25,12 @@ word_array = word.split("")
  end
  for single_num in numbers
   main_array.push(alph_array[single_num])
+  late_arr.each do |element|
+    main_array[element] = main_array[element]
+  end
  end
- main_array.join("")
+  cipher_end = main_array.join("")
+  cipher_end
 end
 
-puts caesar_cipher("a-b", -2)
+puts caesar_cipher("abCd", 1)
