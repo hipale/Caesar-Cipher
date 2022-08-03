@@ -1,36 +1,31 @@
 def caesar_cipher(word, num)
+  check_if_space(word)
   late_arr = []
-  word.split("").each_with_index do |space, index|
-   if space.downcase() != space 
-     space = space.downcase()
-     late_arr.push(index)
-   end
+  numbers = [] 
+  main_array = [] #array for selected elements
+  alph_array = ("a".."z").to_a #array containing alphabet
+  word.split("").each_with_index do |letter, index|
+   if letter.downcase() != letter then late_arr.push(index) end
   end
- numbers = []
- main_array = []
- alph_array = ("a".."z").to_a #array containing alphabet
- word_array = word.downcase.split("")
- for letter in word_array
+ for letter in word.downcase.split("")
   0.upto(alph_array.length) do |arra_number|
     if alph_array[arra_number] == letter
-       if arra_number + num > 25
-        numbers.push(arra_number + num - 26)
-       elsif arra_number + num < 0
-        numbers.push(arra_number + num + 26)
-       else
-        numbers.push(arra_number + num)
-       end
+       if arra_number + num > 25 then numbers.push(arra_number + num - 26)
+       elsif arra_number + num < 0 then numbers.push(arra_number + num + 26)
+        else numbers.push(arra_number + num) 
+       end #if statement so you can repeat the alph_array
     end
   end
  end
- for single_num in numbers
-  main_array.push(alph_array[single_num])
-  late_arr.each do |element|
-    main_array[element] = main_array[element].upcase()
-  end
+ for single_num in numbers do main_array.push(alph_array[single_num]) end
+ late_arr.each do |element|
+ main_array[element].upcase!
  end
-  cipher_end = main_array.join("")
-  cipher_end
+main_array.join("") 
 end
 
-puts caesar_cipher("Hipale", 1)
+
+def check_if_space(word) 
+ if word.split("").length != word.length
+end
+puts caesar_cipher("AbC ", -20) #here you can put in any string
