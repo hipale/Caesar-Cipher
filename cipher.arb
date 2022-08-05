@@ -5,17 +5,25 @@ def caesar_cipher(word, num)
 for letter in word.split("")
   if letter.downcase() != letter 
     0.upto(big_alph_array.length) do |element|
-      if big_alph_array[element] == letter  then letter =  big_alph_array[element + num] end
+      if big_alph_array[element] == letter
+        if element + num > 25 then letter =  main_array.push(big_alph_array[element + num - 26])
+        elsif element + num < 0 then letter =  main_array.push(big_alph_array[element + num + 26]) 
+        else letter =  main_array.push(big_alph_array[element + num]) end
+        end
      end
   else 
     0.upto(alph_array.length) do |element|
-      if alph_array[element] == letter then letter =  alph_array[element + num] end 
+      if alph_array[element] == letter 
+        if element + num > 25 then letter =  main_array.push(alph_array[element + num - 26])
+        elsif element + num < 0 then letter =  main_array.push(alph_array[element + num + 26])
+        else letter =  main_array.push(alph_array[element + num]) end
+    end 
     end 
   end
-  main_array.push(letter)
+  
 end
 main_array.join("")
 end
 
 
-puts caesar_cipher("t E ST", -2) #here you can put in any string
+puts caesar_cipher("y", 2) #here you can put in any string
