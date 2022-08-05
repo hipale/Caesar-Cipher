@@ -19,11 +19,9 @@ for letter in word.split("")
         else letter =  main_array.push(alph_array[element + num]) end
     end 
     end 
-  end
-  
+  end 
 end
 main_array.join("")
 end
 
-
-puts caesar_cipher("y", 2) #here you can put in any string
+puts caesar_cipher("T eSt", 2) #here you can put in any string
