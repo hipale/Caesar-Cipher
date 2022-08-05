@@ -27,4 +27,4 @@ end
 main_array.join("")
 end
 
-puts caesar_cipher("Test A", -2) #here you can put in any string
+puts caesar_cipher("What a string!", 5) #here you can put in any string
