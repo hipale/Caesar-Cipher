@@ -1,0 +1,30 @@
+def caesar_cipher(word, num)
+  main_array = [] #array for selected elements
+  alph_array = ("a".."z").to_a #array containing alphabet
+  big_alph_array = ("A".."Z").to_a #array containing upcase alphabet
+for letter in word.split("")
+  selected_elements = alph_array.select {|element| element == letter}
+  big_selected_elements = big_alph_array.select {|element| element == letter}
+  if selected_elements.length == 0 && big_selected_elements.length == 0 then main_array.push(" ")
+  elsif letter.downcase() != letter 
+    0.upto(big_alph_array.length) do |element|
+      if big_alph_array[element] == letter
+        if element + num > 25 then main_array.push(big_alph_array[element + num - 26])
+        elsif element + num < 0 then  main_array.push(big_alph_array[element + num + 26]) 
+        else  main_array.push(big_alph_array[element + num]) end
+        end
+     end
+  else 
+    0.upto(alph_array.length) do |element|
+      if alph_array[element] == letter 
+        if element + num > 25 then  main_array.push(alph_array[element + num - 26])
+        elsif element + num < 0 then main_array.push(alph_array[element + num + 26])
+        else main_array.push(alph_array[element + num]) end
+    end 
+    end 
+  end 
+end
+main_array.join("")
+end
+
+puts caesar_cipher("Big", 5)
